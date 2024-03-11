@@ -1,0 +1,47 @@
+.calendar {
+  width: 80rem;
+  margin: 1rem auto;
+  border: 2px solid #c8c8c8;
+  padding: 1rem;
+
+  :global {
+    .header-section {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+
+    .calendar-section {
+      $border: 1px solid #525252;
+      border: $border;
+
+      .day-row {
+        display: flex;
+        border-bottom: $border;
+
+        .day {
+          width: calc(100% / 7);
+          padding: 1rem;
+
+          &:not(:last-child) {
+            border-right: $border;
+          }
+        }
+      }
+
+      .week-row {
+        display: flex;
+
+        .date {
+          width: calc(100% / 7);
+          padding: 1rem 1rem 3rem 1rem;
+          cursor: pointer;
+
+          &.out-month {
+            color: #c8c8c8;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+.modal{  
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 50;
+
+  :global{
+    .modal-backdrop {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: rgba($color: #000000, $alpha: 0.2);
+    }
+
+    #modal-root {
+      position: absolute;
+      min-width: 500px;
+      padding: 2rem;
+      background-color: white;
+    }
+
+    .close-modal-btn{
+      float: right;
+    }
+  }
+}
