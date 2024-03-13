@@ -1,4 +1,4 @@
-import { FC, FormEventHandler, PropsWithChildren, useRef } from "react";
+import { FC, FormEventHandler, PropsWithChildren, useEffect, useRef } from "react";
 import axios from 'axios';
 import { ModalCommonProps } from "../shared/modal";
 import { useLoginAction } from "../../contexts/login.provider";
@@ -46,6 +46,17 @@ const LoginModalComponent: FC<PropsWithChildren<loginProps>> = ({
       }
     })
   }
+
+  // // access token 사용자 확인
+  // useEffect(() => {
+  //   axios
+  //   .post('/api/accessToken')
+  //   .then((res) => {
+  //     console.log(res.data);
+  //   })
+  //   .catch((e) => console.log());
+  // }, []);
+
 
   return (
     <div className="login">

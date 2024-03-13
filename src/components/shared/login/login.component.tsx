@@ -22,7 +22,7 @@ const LoginComponent: FC = () => {
     })
     loginAction('');
   }
-  
+
   if(loginStore === ''){
     return (
       <>

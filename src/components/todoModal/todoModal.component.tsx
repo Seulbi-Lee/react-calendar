@@ -1,17 +1,20 @@
-import { FC, FormEventHandler, PropsWithChildren, useRef, useState } from "react";
+import { FC, FormEventHandler, PropsWithChildren, useRef } from "react";
 import { ModalCommonProps } from "../shared/modal";
 import { DateTime } from "luxon";
-import { getTodoForDate, setTodoForDate } from "./todoModalUtils";
+import {setTodoForDate } from "./todoModalUtils";
 import axios from "axios";
 
 type TodoModalProps = ModalCommonProps & {
   dateTime: DateTime;
+  todoList: string[];
+  setTodoList: (any: any) => void;
 }
 
 const TodoModalComponent: FC<PropsWithChildren<TodoModalProps>> = ({
   dateTime,
+  todoList,
+  setTodoList,
 }) => {
-  const [todoList, setTodoList] = useState<string[]>(() => getTodoForDate(dateTime));
   const todoInputRef = useRef<HTMLInputElement>(null);
 
   const createTodo: FormEventHandler<HTMLFormElement> = async (event) => {
@@ -24,7 +27,7 @@ const TodoModalComponent: FC<PropsWithChildren<TodoModalProps>> = ({
     todoInpuElement.value = "";
     if(!newTodo) return;
     
-    setTodoList((prevTodo) => {
+    setTodoList((prevTodo: any) => {
       const newTodoList = [...prevTodo, newTodo];
       setTodoForDate(dateTime, newTodoList);
       return [...prevTodo, newTodo];
